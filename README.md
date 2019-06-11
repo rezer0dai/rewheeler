@@ -15,6 +15,6 @@ check blog [here](https://rezer0dai.github.io/rewheeler/).
   - 20 arms environment, used shared actor + critic for controlling all arms
   - How to install :
   - environment itself : https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip
-    - unpack project to ./reach/ folder inside this project
+    - unpack package to ./reach/ folder inside this project
 
   - replicate results by running [notebooks](https://rezer0dai.github.io/rewheeler/#jupyter-notebooks)
