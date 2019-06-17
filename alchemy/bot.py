@@ -21,6 +21,7 @@ class BrainDescription:
             replay_cleaning, prob_treshold,
             ppo_eps, dbgout,
             adv_on, adv_boost,
+            lr_actor, lr_critic, clip_norm,
             tau_replay_counter, tau_base, tau_final,
             ):
         self.ddpg = ddpg
@@ -50,6 +51,9 @@ class BrainDescription:
         self.tau_replay_counter=tau_replay_counter
         self.tau_base=tau_base
         self.tau_final=tau_final
+        self.lr_actor=lr_actor
+        self.lr_critic=lr_critic
+        self.clip_norm=clip_norm
 
 class Bot:
     def __init__(self,
@@ -58,7 +62,6 @@ class Bot:
             brain_descriptions,
             n_actors, n_critics,
             n_history, state_size, action_size,
-            lr_actor, lr_critic, clip_norm,
             n_step, floating_step, gamma,
  # agent configs
             update_goal,
@@ -85,7 +88,7 @@ class Bot:
                 n_actors=n_actors, n_critics=n_critics,
                 n_history=n_history, state_size=state_size, action_size=action_size,
                 resample_delay=bd.resample_delay,
-                lr_actor=lr_actor, lr_critic=lr_critic, clip_norm=clip_norm,
+                lr_actor=bd.lr_actor, lr_critic=bd.lr_critic, clip_norm=bd.clip_norm,
                 n_step=n_step, gamma=gamma, gae=gae,
                 ppo_eps=bd.ppo_eps, dbgout=bd.dbgout,
                 adv_on=bd.adv_on, adv_boost=bd.adv_boost,

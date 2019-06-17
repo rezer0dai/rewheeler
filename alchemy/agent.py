@@ -167,7 +167,7 @@ class Agent:
 
             samples = self._select()
             # keep an eye on latest experience
-            population = [] if (i % self.fresh_frac) else self._population(batch, self.batch_size // self.fresh_frac)
+            population = [] if (not self.fresh_frac or i % self.fresh_frac) else self._population(batch, self.batch_size // self.fresh_frac)
             mini_batch = batch[population] if None == samples else np.vstack([samples, batch[population]])
             yield mini_batch.T
 
